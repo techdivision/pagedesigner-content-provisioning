@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "rows": [
+    {
+      "columns": [
+        {
+          "gridSize": {
+            "md": 7
+          },
+          "content": "{{widget type=\"Magenerds\\WysiwygWidget\\Block\\Widget\\Editor\" content=\"---BASE64---PHA+Jm5ic3A7Q01TIGhvbWVwYWdlIGNvbnRlbnQgZ29lcyBoZXJlLjwvcD4KPHA+YXNkZmxha3NkZmogw7ZsYXNramQgZsO2bGFza2RqZiBhc2Q8L3A+CjxwPmYgYXNsZGtmaiBhc8O2bGtkZjwvcD4=\" type_name=\"Wysiwyg Editor\"}}",
+          "settings": {}
+        },
+        {
+          "gridSize": {
+            "md": 5
+          },
+          "content": "{{widget type=\"Magenerds\\WysiwygWidget\\Block\\Widget\\Editor\" content=\"---BASE64---PGgxPkhlYWRsaW5lLi4uPC9oMT4=\" type_name=\"Wysiwyg Editor\"}}",
+          "settings": {}
+        }
+      ],
+      "settings": {}
+    },
+    {
+      "columns": [
+        {
+          "gridSize": {
+            "md": 12
+          },
+          "content": "{{widget type=\"Magento\\Catalog\\Block\\Widget\\RecentlyCompared\" uiComponent=\"widget_recently_compared\" page_size=\"5\" show_attributes=\"name,image,price\" show_buttons=\"add_to_cart\" template=\"product/widget/compared/grid.phtml\" type_name=\"Recently Compared Products\"}}",
+          "settings": {}
+        }
+      ],
+      "settings": {}
+    },
+    {
+      "columns": [
+        {
+          "gridSize": {
+            "md": 12
+          },
+          "content": "{{widget type=\"Magento\\Sales\\Block\\Widget\\Guest\\Form\" template=\"widget/guest/form.phtml\" type_name=\"Orders and Returns\"}}",
+          "settings": {}
+        }
+      ],
+      "settings": {}
+    }
+  ]
+}

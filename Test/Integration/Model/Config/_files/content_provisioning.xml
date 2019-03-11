@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Firegento/ContentProvisioning/etc/content_provisioning.xsd">
+    <page key="test.page.no.json" identifier="test-page-no-json" maintained="true" active="true">
+        <title>Test Page 1</title>
+        <content type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/file-1.html</content>
+    </page>
+    <page key="test.page.with.json.1" identifier="test-page-with-json-1" active="false">
+        <title>Title 2</title>
+        <content heading="New Page Heading 2" type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/file-1.html</content>
+        <stores>
+            <store code="default" />
+            <store code="admin" />
+        </stores>
+        <page_designer_json type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/example-1.json</page_designer_json>
+    </page>
+    <page key="test.page.with.json.2" identifier="test-page-with-json-2" active="false">
+        <title>Title 2</title>
+        <content heading="New Page Heading 2" type="file">Firegento_ContentProvisioning::Test/Integration/Model/Config/_files/test-files/file-1.html</content>
+        <stores>
+            <store code="default" />
+            <store code="admin" />
+        </stores>
+        <page_designer_json type="plain"><![CDATA[{"version": "1.0.0", "rows": [{"test": 1},{"test": 2}]}]]></page_designer_json>
+    </page>
+    <block key="test.block.no.json" identifier="test-block-no-json" maintained="true" active="true">
+        <title>Test Block 1</title>
+        <content type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/file-1.html</content>
+    </block>
+    <block key="test.block.with.json.1" identifier="test-block-with-json-1" maintained="false" active="true">
+        <title>Test Block 1</title>
+        <content type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/file-1.html</content>
+        <page_designer_json><![CDATA[{"version": "1.0.0", "rows": []}]]></page_designer_json>
+    </block>
+    <block key="test.block.with.json.2" identifier="test-block-with-json-2" maintained="true" active="false">
+        <title>Test Block 1</title>
+        <content><![CDATA[<h2>foo</h2>]]></content>
+        <page_designer_json type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/example-1.json</page_designer_json>
+    </block>
+</config>
