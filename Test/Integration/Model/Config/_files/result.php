@@ -15,6 +15,8 @@ return [
             PageEntryInterface::IS_MAINTAINED => true,
             PageEntryInterface::STORES => ['admin'],
             PageEntryInterface::CONTENT_HEADING => '',
+            PageEntryInterface::MEDIA_FILES => [],
+            PageEntryInterface::MEDIA_DIRECTORY => null,
         ],
         'test.page.with.json.1' => [
             PageEntryInterface::TITLE => 'Title 2',
@@ -26,6 +28,8 @@ return [
             PageEntryInterface::IS_MAINTAINED => false,
             PageEntryInterface::STORES => ['default', 'admin'],
             Constants::ATTR_PAGE_DESIGNER_JSON => file_get_contents(__DIR__ . '/test-files/example-1.json'),
+            PageEntryInterface::MEDIA_FILES => [],
+            PageEntryInterface::MEDIA_DIRECTORY => null,
         ],
         'test.page.with.json.2' => [
             PageEntryInterface::TITLE => 'Title 2',
@@ -37,7 +41,26 @@ return [
             PageEntryInterface::IS_MAINTAINED => false,
             PageEntryInterface::STORES => ['default', 'admin'],
             Constants::ATTR_PAGE_DESIGNER_JSON => '{"version": "1.0.0", "rows": [{"test": 1},{"test": 2}]}',
-        ]
+            PageEntryInterface::MEDIA_FILES => [],
+            PageEntryInterface::MEDIA_DIRECTORY => null,
+        ],
+        'test.page.with.json.3' => [
+            PageEntryInterface::TITLE => 'Title 3',
+            PageEntryInterface::CONTENT => '',
+            PageEntryInterface::CONTENT_HEADING => 'New Page Heading 3',
+            PageEntryInterface::KEY => 'test.page.with.json.3',
+            PageEntryInterface::IDENTIFIER => 'test-page-with-json-3',
+            PageEntryInterface::IS_ACTIVE => true,
+            PageEntryInterface::IS_MAINTAINED => true,
+            PageEntryInterface::STORES => ['admin'],
+            Constants::ATTR_PAGE_DESIGNER_JSON => file_get_contents(__DIR__ . '/test-files/example-2.json'),
+            PageEntryInterface::MEDIA_FILES => [
+                'foobar/Screenshot_2019-03-11_20.23.41.png',
+                'images/image-test.jpg',
+                'images/dir/image-foobar.jpg',
+            ],
+            PageEntryInterface::MEDIA_DIRECTORY => __DIR__ . '/test-files/media',
+        ],
     ],
     'blocks' => [
         'test.block.no.json' => [
@@ -48,6 +71,8 @@ return [
             BlockEntryInterface::IS_ACTIVE => true,
             BlockEntryInterface::IS_MAINTAINED => true,
             BlockEntryInterface::STORES => ['admin'],
+            BlockEntryInterface::MEDIA_FILES => [],
+            BlockEntryInterface::MEDIA_DIRECTORY => null,
         ],
         'test.block.with.json.1' => [
             BlockEntryInterface::TITLE => 'Test Block 1',
@@ -58,6 +83,8 @@ return [
             BlockEntryInterface::IS_MAINTAINED => false,
             BlockEntryInterface::STORES => ['admin'],
             Constants::ATTR_PAGE_DESIGNER_JSON => '{"version": "1.0.0", "rows": []}',
+            BlockEntryInterface::MEDIA_FILES => [],
+            BlockEntryInterface::MEDIA_DIRECTORY => null,
         ],
         'test.block.with.json.2' => [
             BlockEntryInterface::TITLE => 'Test Block 1',
@@ -68,6 +95,24 @@ return [
             BlockEntryInterface::IS_MAINTAINED => true,
             BlockEntryInterface::STORES => ['admin'],
             Constants::ATTR_PAGE_DESIGNER_JSON => file_get_contents(__DIR__ . '/test-files/example-1.json'),
+            BlockEntryInterface::MEDIA_FILES => [],
+            BlockEntryInterface::MEDIA_DIRECTORY => null,
+        ],
+        'test.block.with.json.3' => [
+            BlockEntryInterface::TITLE => 'Test Block 3',
+            BlockEntryInterface::CONTENT => '',
+            BlockEntryInterface::KEY => 'test.block.with.json.3',
+            BlockEntryInterface::IDENTIFIER => 'test-block-with-json-3',
+            BlockEntryInterface::IS_ACTIVE => true,
+            BlockEntryInterface::IS_MAINTAINED => true,
+            BlockEntryInterface::STORES => ['admin'],
+            Constants::ATTR_PAGE_DESIGNER_JSON => file_get_contents(__DIR__ . '/test-files/example-2.json'),
+            PageEntryInterface::MEDIA_FILES => [
+                'foobar/Screenshot_2019-03-11_20.23.41.png',
+                'images/image-test.jpg',
+                'images/dir/image-foobar.jpg',
+            ],
+            PageEntryInterface::MEDIA_DIRECTORY => __DIR__ . '/test-files/media',
         ],
     ],
 ];

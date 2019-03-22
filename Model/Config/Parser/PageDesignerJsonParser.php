@@ -19,10 +19,13 @@ namespace TechDivision\PageDesignerContentProvisioning\Model\Config\Parser;
 
 use DOMElement;
 use Firegento\ContentProvisioning\Api\ConfigParserInterface;
+use Firegento\ContentProvisioning\Api\Data\EntryInterface;
 use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchAttributeValue;
+use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchMediaFilesFromContent;
 use Firegento\ContentProvisioning\Model\Resolver\ContentResolverProvider;
 use Magenerds\PageDesigner\Constants;
 use Magento\Framework\Exception\LocalizedException;
+use TechDivision\PageDesignerContentProvisioning\Model\Config\Parser\Query\FetchEncodedContents;
 
 class PageDesignerJsonParser implements ConfigParserInterface
 {
@@ -37,15 +40,31 @@ class PageDesignerJsonParser implements ConfigParserInterface
     private $fetchAttributeValue;
 
     /**
+     * @var FetchEncodedContents
+     */
+    private $fetchEncodedContents;
+
+    /**
+     * @var FetchMediaFilesFromContent
+     */
+    private $fetchMediaFilesFromContent;
+
+    /**
      * @param ContentResolverProvider $contentResolverProvider
      * @param FetchAttributeValue $fetchAttributeValue
+     * @param FetchEncodedContents $fetchEncodedContents
+     * @param FetchMediaFilesFromContent $fetchMediaFilesFromContent
      */
     public function __construct(
         ContentResolverProvider $contentResolverProvider,
-        FetchAttributeValue $fetchAttributeValue
+        FetchAttributeValue $fetchAttributeValue,
+        FetchEncodedContents $fetchEncodedContents,
+        FetchMediaFilesFromContent $fetchMediaFilesFromContent
     ) {
         $this->contentResolverProvider = $contentResolverProvider;
         $this->fetchAttributeValue = $fetchAttributeValue;
+        $this->fetchEncodedContents = $fetchEncodedContents;
+        $this->fetchMediaFilesFromContent = $fetchMediaFilesFromContent;
     }
 
     /**
@@ -61,12 +80,33 @@ class PageDesignerJsonParser implements ConfigParserInterface
 
             $type = $this->fetchAttributeValue->execute($jsonNode, 'type', 'plain');
             $contentResolver = $this->contentResolverProvider->get($type);
+            $json = $contentResolver->execute($jsonNode);
 
             return [
-                Constants::ATTR_PAGE_DESIGNER_JSON => $contentResolver->execute($jsonNode)
+                Constants::ATTR_PAGE_DESIGNER_JSON => $json,
+                EntryInterface::MEDIA_FILES => $this->fetchMediaFiles($json)
             ];
         }
 
         return [];
+    }
+
+    /**
+     * @param string $content
+     * @return array
+     * @throws LocalizedException
+     */
+    private function fetchMediaFiles(string $content): array
+    {
+        $result = [];
+        $encodedContents = $this->fetchEncodedContents->execute($content);
+        foreach ($encodedContents as $encodedContent) {
+            $decodedContent = base64_decode($encodedContent);
+            foreach ($this->fetchMediaFilesFromContent->execute($decodedContent) as $file) {
+                $result[] = $file;
+            }
+        }
+
+        return $result;
     }
 }

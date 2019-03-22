@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "rows": [
+    {
+      "columns": [
+        {
+          "gridSize": {
+            "md": 12
+          },
+          "content": "{{widget type=\"Magenerds\\WysiwygWidget\\Block\\Widget\\Editor\" uiComponent=\"widget_recently_viewed\" page_size=\"5\" show_attributes=\"image\" show_buttons=\"\" template=\"product/widget/viewed/grid.phtml\" content=\"---BASE64---PHA+Zm9vYmFyPC9wPgo8cD48aW1nIHNyYz0ie3ttZWRpYSB1cmw9JnF1b3Q7Zm9vYmFyL1NjcmVlbnNob3RfMjAxOS0wMy0xMV8yMC4yMy40MS5wbmcmcXVvdDt9fSIgYWx0PSIiIHdpZHRoPSI3NTkiIGhlaWdodD0iMTg1Ij48L3A+\" type_name=\"Wysiwyg Editor\"}}",
+          "settings": {}
+        }
+      ],
+      "settings": {}
+    },
+    {
+      "columns": [
+        {
+          "gridSize": {
+            "md": 12
+          },
+          "content": "{{widget type=\"Magenerds\\WysiwygWidget\\Block\\Widget\\Editor\" content=\"---BASE64---PHA+PGEgaHJlZj0ie3ttZWRpYSB1cmw9JnF1b3Q7aW1hZ2VzL2ltYWdlLXRlc3QuanBnJnF1b3Q7fX0iPkxpbmsgdG8gYSBpbWFnZTwvYT48L3A+CjxwPiZuYnNwOzwvcD4KPHA+PGEgaHJlZj0ie3ttZWRpYSB1cmw9JnF1b3Q7aW1hZ2VzL2Rpci9pbWFnZS1mb29iYXIuanBnJnF1b3Q7fX0iPkxpbmsgdG8gYSBpbWFnZTwvYT48L3A+CjxwPiZuYnNwOzwvcD4=\" type_name=\"Wysiwyg Editor\"}}",
+          "settings": {}
+        }
+      ],
+      "settings": {}
+    }
+  ]
+}

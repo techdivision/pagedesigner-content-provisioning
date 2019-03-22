@@ -22,6 +22,13 @@
         </stores>
         <page_designer_json type="plain"><![CDATA[{"version": "1.0.0", "rows": [{"test": 1},{"test": 2}]}]]></page_designer_json>
     </page>
+    <page key="test.page.with.json.3" identifier="test-page-with-json-3" active="true" maintained="true">
+        <title>Title 3</title>
+        <content heading="New Page Heading 3" />
+        <media_directory>TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/media</media_directory>
+        <page_designer_json type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/example-2.json</page_designer_json>
+    </page>
+
     <block key="test.block.no.json" identifier="test-block-no-json" maintained="true" active="true">
         <title>Test Block 1</title>
         <content type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/file-1.html</content>
@@ -35,5 +42,11 @@
         <title>Test Block 1</title>
         <content><![CDATA[<h2>foo</h2>]]></content>
         <page_designer_json type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/example-1.json</page_designer_json>
+    </block>
+    <block key="test.block.with.json.3" identifier="test-block-with-json-3" maintained="true" active="true">
+        <title>Test Block 3</title>
+        <content><![CDATA[]]></content>
+        <media_directory>TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/media</media_directory>
+        <page_designer_json type="file">TechDivision_PageDesignerContentProvisioning::Test/Integration/Model/Config/_files/test-files/example-2.json</page_designer_json>
     </block>
 </config>
