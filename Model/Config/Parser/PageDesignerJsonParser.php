@@ -106,6 +106,6 @@ class PageDesignerJsonParser implements ConfigParserInterface
             $result[] = $this->fetchMediaFilesChain->execute($decodedContent);
         }
 
-        return array_merge(...$result);
+        return count($result) ? array_merge(...$result) : [];
     }
 }
