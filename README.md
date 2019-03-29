@@ -1,4 +1,4 @@
-# pagedesigner-content-provisioning
+# Description
 
 This module extends functionality for module `firegento/magento2-content-provisioning` in order 
 provide content for `magenerds/pagedesigner`.
@@ -7,6 +7,17 @@ See also following repositories:
 
 * https://github.com/Magenerds/PageDesigner
 * https://github.com/magento-hackathon/m2-content-provisioning
+
+## Supported versions matrix
+
+### "master" branch
+| PHP   | Magento 2.1     |   Magento 2.2                                                                                                                                                                                         | Magento 2.3                                                                                                                                                                                        | Magento 2.3-dev                                                                                                                                                                                    |
+|:---:  |:---:            |:---:                                                                                                                                                                                                  |:---:                                                                                                                                                                                                 |:---:                                                                                                                                                                                             |
+| 7.0   | -               | -                                                                                                                                                                                                     | -                                                                                                                                                                                                  | -                                                                                                                                                                                                  |
+| 7.1   | -               | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/1)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning)    | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/2)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/3)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning)     |
+| 7.2   | -               | -                                                                                                                                                                                                     | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/4)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/5)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning)   |
+
+## Documentation
 
 After installing this module you can provide an additional XML node (`page_designer_json`) for page and block 
 entry configurations.
