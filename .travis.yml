@@ -34,6 +34,7 @@ install:
   - cd /tmp/magento
   - composer install --no-interaction
   - composer require firegento/magento2-content-provisioning
+  - composer require magenerds/pagedesigner
   - composer require --dev mikey179/vfsstream
 
 script:

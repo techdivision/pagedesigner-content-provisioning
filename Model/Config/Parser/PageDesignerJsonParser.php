@@ -21,7 +21,7 @@ use DOMElement;
 use Firegento\ContentProvisioning\Api\ConfigParserInterface;
 use Firegento\ContentProvisioning\Api\Data\EntryInterface;
 use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchAttributeValue;
-use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchMediaFilesFromContent;
+use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchMediaFilesChain;
 use Firegento\ContentProvisioning\Model\Resolver\ContentResolverProvider;
 use Magenerds\PageDesigner\Constants;
 use Magento\Framework\Exception\LocalizedException;
@@ -45,26 +45,26 @@ class PageDesignerJsonParser implements ConfigParserInterface
     private $fetchEncodedContents;
 
     /**
-     * @var FetchMediaFilesFromContent
+     * @var FetchMediaFilesChain
      */
-    private $fetchMediaFilesFromContent;
+    private $fetchMediaFilesChain;
 
     /**
      * @param ContentResolverProvider $contentResolverProvider
      * @param FetchAttributeValue $fetchAttributeValue
      * @param FetchEncodedContents $fetchEncodedContents
-     * @param FetchMediaFilesFromContent $fetchMediaFilesFromContent
+     * @param FetchMediaFilesChain $fetchMediaFilesChain
      */
     public function __construct(
         ContentResolverProvider $contentResolverProvider,
         FetchAttributeValue $fetchAttributeValue,
         FetchEncodedContents $fetchEncodedContents,
-        FetchMediaFilesFromContent $fetchMediaFilesFromContent
+        FetchMediaFilesChain $fetchMediaFilesChain
     ) {
         $this->contentResolverProvider = $contentResolverProvider;
         $this->fetchAttributeValue = $fetchAttributeValue;
         $this->fetchEncodedContents = $fetchEncodedContents;
-        $this->fetchMediaFilesFromContent = $fetchMediaFilesFromContent;
+        $this->fetchMediaFilesChain = $fetchMediaFilesChain;
     }
 
     /**
@@ -102,11 +102,10 @@ class PageDesignerJsonParser implements ConfigParserInterface
         $encodedContents = $this->fetchEncodedContents->execute($content);
         foreach ($encodedContents as $encodedContent) {
             $decodedContent = base64_decode($encodedContent);
-            foreach ($this->fetchMediaFilesFromContent->execute($decodedContent) as $file) {
-                $result[] = $file;
-            }
+
+            $result[] = $this->fetchMediaFilesChain->execute($decodedContent);
         }
 
-        return $result;
+        return count($result) ? array_merge(...$result) : [];
     }
 }
