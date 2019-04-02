@@ -15,9 +15,9 @@ php:
 
 env:
   matrix:
-  - MAGENTO_VERSION=2.2
-  - MAGENTO_VERSION=2.3
-  - MAGENTO_VERSION=2.3-develop
+  - MAGENTO_VERSION=2.2 PAGEDESIGNER_VERSION=3.2
+  - MAGENTO_VERSION=2.3 PAGEDESIGNER_VERSION=4.0
+  - MAGENTO_VERSION=2.3-develop PAGEDESIGNER_VERSION=4.0
 matrix:
   exclude:
   - php: 7.2
@@ -34,7 +34,7 @@ install:
   - cd /tmp/magento
   - composer install --no-interaction
   - composer require firegento/magento2-content-provisioning
-  - composer require magenerds/pagedesigner
+  - composer require magenerds/pagedesigner "^$PAGEDESIGNER_VERSION"
   - composer require --dev mikey179/vfsstream
 
 script:
