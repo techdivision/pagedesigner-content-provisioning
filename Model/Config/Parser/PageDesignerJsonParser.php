@@ -20,12 +20,11 @@ namespace TechDivision\PageDesignerContentProvisioning\Model\Config\Parser;
 use DOMElement;
 use Firegento\ContentProvisioning\Api\ConfigParserInterface;
 use Firegento\ContentProvisioning\Api\Data\EntryInterface;
+use Firegento\ContentProvisioning\Api\MediaFilesParserInterface;
 use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchAttributeValue;
-use Firegento\ContentProvisioning\Model\Config\Parser\Query\FetchMediaFilesChain;
 use Firegento\ContentProvisioning\Model\Resolver\ContentResolverProvider;
 use Magenerds\PageDesigner\Constants;
 use Magento\Framework\Exception\LocalizedException;
-use TechDivision\PageDesignerContentProvisioning\Model\Config\Parser\Query\FetchEncodedContents;
 
 class PageDesignerJsonParser implements ConfigParserInterface
 {
@@ -40,31 +39,23 @@ class PageDesignerJsonParser implements ConfigParserInterface
     private $fetchAttributeValue;
 
     /**
-     * @var FetchEncodedContents
+     * @var MediaFilesParserInterface
      */
-    private $fetchEncodedContents;
-
-    /**
-     * @var FetchMediaFilesChain
-     */
-    private $fetchMediaFilesChain;
+    private $mediaFilesParser;
 
     /**
      * @param ContentResolverProvider $contentResolverProvider
      * @param FetchAttributeValue $fetchAttributeValue
-     * @param FetchEncodedContents $fetchEncodedContents
-     * @param FetchMediaFilesChain $fetchMediaFilesChain
+     * @param MediaFilesParserInterface $mediaFilesParser
      */
     public function __construct(
         ContentResolverProvider $contentResolverProvider,
         FetchAttributeValue $fetchAttributeValue,
-        FetchEncodedContents $fetchEncodedContents,
-        FetchMediaFilesChain $fetchMediaFilesChain
+        MediaFilesParserInterface $mediaFilesParser
     ) {
         $this->contentResolverProvider = $contentResolverProvider;
         $this->fetchAttributeValue = $fetchAttributeValue;
-        $this->fetchEncodedContents = $fetchEncodedContents;
-        $this->fetchMediaFilesChain = $fetchMediaFilesChain;
+        $this->mediaFilesParser = $mediaFilesParser;
     }
 
     /**
@@ -84,28 +75,10 @@ class PageDesignerJsonParser implements ConfigParserInterface
 
             return [
                 Constants::ATTR_PAGE_DESIGNER_JSON => $json,
-                EntryInterface::MEDIA_FILES => $this->fetchMediaFiles($json)
+                EntryInterface::MEDIA_FILES => $this->mediaFilesParser->execute($json)
             ];
         }
 
         return [];
-    }
-
-    /**
-     * @param string $content
-     * @return array
-     * @throws LocalizedException
-     */
-    private function fetchMediaFiles(string $content): array
-    {
-        $result = [];
-        $encodedContents = $this->fetchEncodedContents->execute($content);
-        foreach ($encodedContents as $encodedContent) {
-            $decodedContent = base64_decode($encodedContent);
-
-            $result[] = $this->fetchMediaFilesChain->execute($decodedContent);
-        }
-
-        return count($result) ? array_merge(...$result) : [];
     }
 }
