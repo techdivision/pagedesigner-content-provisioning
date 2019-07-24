@@ -6,8 +6,9 @@ addons:
       - mysql-server
       - mysql-client
 services:
-- rabbitmq
-- elasticsearch
+  - mysql
+  - rabbitmq
+  - elasticsearch
 
 language: php
 php:
