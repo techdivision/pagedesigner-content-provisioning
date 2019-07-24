@@ -5,6 +5,7 @@ addons:
     packages:
       - mysql-server
       - mysql-client
+      - rabbitmq-server 
 services:
   - mysql
   - rabbitmq
