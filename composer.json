@@ -3,7 +3,7 @@
     "description": "Extends firegento/m2-content-provisioning module in order to support magenerds/pagedesigner editor.",
     "require": {
         "php": "~7.1.3||~7.2.0",
-        "magento/framework": "101.0.* | 102.0.*",
+        "magento/framework": "101.0.*|102.0.*",
         "firegento/magento2-content-provisioning": "^1.2.1",
         "magenerds/pagedesigner": "^3.0 | ^4.0"
     },
