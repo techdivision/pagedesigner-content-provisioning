@@ -5,7 +5,7 @@
         "php": "~7.1.3||~7.2.0",
         "magento/framework": "102.0.*",
         "firegento/magento2-content-provisioning": "^1.2.1",
-        "magenerds/pagedesigner": "^4.0.0"
+        "magenerds/pagedesigner": "^3.0 | ^4.0"
     },
     "license": [
         "OSL-3.0"
