@@ -13,18 +13,13 @@ services:
 
 language: php
 php:
-  - 7.1
-  - 7.2
+  - 7.3
+  - 7.4
 
 env:
   matrix:
-  - MAGENTO_VERSION=2.2 PAGEDESIGNER_VERSION=3.2
   - MAGENTO_VERSION=2.3 PAGEDESIGNER_VERSION=4.0
-  - MAGENTO_VERSION=2.3-develop PAGEDESIGNER_VERSION=4.0
-matrix:
-  exclude:
-  - php: 7.2
-    env: MAGENTO_VERSION=2.2 PAGEDESIGNER_VERSION=3.2
+  - MAGENTO_VERSION=2.4 PAGEDESIGNER_VERSION=4.0
 
 before_install:
   - git clone --depth=50 --branch=$MAGENTO_VERSION https://github.com/magento/magento2.git /tmp/magento
