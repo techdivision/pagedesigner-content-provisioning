@@ -14,7 +14,7 @@ See also following repositories:
 | PHP | Magento 2.3 | Magento 2.4 |
 |:---:|:---:|:---:|
 | 7.3   | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/1)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/2)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) |
-| 7.3   | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/3)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/4)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) |
+| 7.4   | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/3)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) | [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/techdivision/pagedesigner-content-provisioning/branches/master/4)](https://travis-ci.org/techdivision/pagedesigner-content-provisioning) |
 
 ## Documentation
 
